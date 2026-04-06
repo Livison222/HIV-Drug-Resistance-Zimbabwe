@@ -1,0 +1,11 @@
+[theme]
+base="dark"
+
+[server]
+port=8501
+enableCORS=false
+
+[page]
+title="HIV Drug Resistance Zimbabwe"
+icon="📊"
+layout="centered"
