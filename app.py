@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from src.model_saver import load_model, predict_single, predict_batch
+from src.auth import check_password, show_logout_button
 import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime
@@ -13,6 +14,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Check password - if not authenticated, show login page
+if not check_password():
+    st.stop()
 
 # Custom CSS for beautiful styling
 st.markdown("""
@@ -206,6 +211,9 @@ with st.sidebar:
         
         For sequence format details, check the About section.
         """)
+
+# Show logout button
+show_logout_button()
 
 # Main content
 if page == "Single Sequence":
